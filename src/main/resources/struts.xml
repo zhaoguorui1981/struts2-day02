@@ -4,7 +4,13 @@
 "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
 	<package name="test" namespace="/test" extends="struts-default">
+		<interceptors>
+			<interceptor name="demoI" class="demoInterceptorI"></interceptor>
+			<interceptor name="demoII" class="demoInterceptorII"></interceptor>
+		</interceptors>
 		<action name="hello" class="helloAction">
+			<interceptor-ref name="demoI"></interceptor-ref>
+			<interceptor-ref name="demoII"></interceptor-ref>
 			<result name="success">/WEB-INF/test.jsp</result>
 		</action>
 		<action name="demoAction" class="demoAction">
@@ -24,4 +30,12 @@
 		</action>
 	</package>
 	
+	<package name="jsondemo" namespace="/json" extends="json-default">
+		<action name="demo" class="jsonAction">
+			<result name="success" type="json">
+			<param  name="root">value</param>
+			
+			</result>
+		</action>
+	</package>
 </struts>

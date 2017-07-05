@@ -17,7 +17,7 @@ public class CodeAction {
 	public InputStream png;
 	public String execute(){
 		BufferedImage img=new BufferedImage(
-				100,38,BufferedImage.TYPE_4BYTE_ABGR);
+				100,38,BufferedImage.TYPE_3BYTE_BGR);
 		System.out.println(1);
 		for (int x = 0; x < img.getWidth(); x++) {
 			for (int y = 0; y < img.getHeight(); y++) {
@@ -36,10 +36,10 @@ public class CodeAction {
 		for (int i = 0; i < 5; i++) {
 			int c=(int)(Math.random()*0xffffff);
 			g.setColor(new Color(c));
-			int x1=(int)Math.random()*100;
-			int x2=(int)Math.random()*100;
-			int y1=(int)Math.random()*100;
-			int y2=(int)Math.random()*100;
+			int x1=(int)(Math.random()*100);
+			int x2=(int)(Math.random()*100);
+			int y1=(int)(Math.random()*30);
+			int y2=(int)(Math.random()*30);
 			g.drawLine(x1, y1, x2, y2);
 		}
 		System.out.println(4);
